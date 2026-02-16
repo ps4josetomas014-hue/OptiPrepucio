@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OptiPrepucio | Minecraft Edition v4.5</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --mc-green: #5da037;
+            --mc-dark-green: #3a6322;
+            --mc-dirt: #4b3621;
+            --mc-stone: #7a7a7a;
+            --mc-border: #1e1e1e;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://wallpaperaccess.com/full/1155011.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* NAVEGACIÓN */
+        nav {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 5px solid var(--mc-green);
+        }
+
+        .logo {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8rem;
+            color: var(--mc-green);
+            text-shadow: 2px 2px #000;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 2.2rem;
+            text-shadow: 4px 4px #000;
+            margin-bottom: 20px;
+        }
+
+        /* GRID DE TARJETAS */
+        .main-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: rgba(30, 30, 30, 0.95);
+            border: 4px solid var(--mc-border);
+            box-shadow: inset -4px -4px #000, inset 4px 4px #555;
+        }
+
+        .card-body { padding: 20px; }
+        
+        .card-body h3 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+            color: var(--mc-green);
+        }
+
+        /* BOTONES */
+        .btn-download {
+            display: block;
+            background: #5da037;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            text-decoration: none;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.6rem;
+            border-top: 4px solid #84d156;
+            border-left: 4px solid #84d156;
+            border-right: 4px solid #3a6322;
+            border-bottom: 4px solid #3a6322;
+            margin-top: 15px;
+        }
+
+        .btn-download:active {
+            border: 4px solid #3a6322;
+            padding-top: 17px; padding-bottom: 13px;
+        }
+
+        /* SECCIÓN DE COMENTARIOS */
+        .comments-section {
+            background: rgba(0, 0, 0, 0.8);
+            border: 4px solid var(--mc-dirt);
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+        }
+
+        .comments-section h2 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1rem;
+            color: #e2ab2f; /* Color oro Minecraft */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .comment-form input, .comment-form textarea {
+            background: #222;
+            border: 3px solid var(--mc-stone);
+            padding: 12px;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            outline: none;
+        }
+
+        .comment-form input:focus { border-color: var(--mc-green); }
+
+        .btn-comment {
+            background: #e2ab2f;
+            color: #000;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+            padding: 15px;
+            border: none;
+            cursor: pointer;
+            border-bottom: 5px solid #8e6a1c;
+        }
+
+        .btn-comment:hover { background: #ffcf5e; }
+
+        .comment-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .comment-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-left: 5px solid var(--mc-green);
+            margin-bottom: 15px;
+        }
+
+        .comment-item .author {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.6rem;
+            color: var(--mc-green);
+            margin-bottom: 5px;
+        }
+
+        .comment-item .fps-tag {
+            background: #cc0000;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #000;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.5rem;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">OPTIPREPUCIO.NET</div>
+        <div style="font-size: 0.6rem; font-family: 'Press Start 2P'; color: #fff;">V4.5</div>
+    </nav>
+
+    <header class="hero">
+        <h1>¡ADIÓS AL LAG!</h1>
+        <p>Descarga los scripts de OptiPrepucio y revive tu laptop de gobierno.</p>
+    </header>
+
+    <main class="main-content">
+        <div class="grid">
+            <article class="card">
+                <div class="card-body">
+                    <h3>SCRIPT COMPLETO</h3>
+                    <p>Optimización total del registro y limpieza profunda de archivos basura.</p>
+                    <a href="https://drive.google.com/file/d/1IPFKmCCBKzU7bj6741SJVTyjNrdWRCF2/view" class="btn-download">DESCARGAR</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-body">
+                    <h3>MODO PAPA (800x600)</h3>
+                    <p>Fuerza la resolución más baja para ganar fluidez máxima en Fall Guys.</p>
+                    <a href="#" class="btn-download">DESCARGAR</a>
+                </div>
+            </article>
+        </div>
+
+        <section class="comments-section">
+            <h2>REPORTE DE RESULTADOS</h2>
+            
+            <form class="comment-form" id="fpsForm">
+                <input type="text" id="nombre" placeholder="Tu nombre o Nick" required>
+                <input type="text" id="pc" placeholder="¿Qué laptop tienes? (Ej: Juana Manso)" required>
+                <textarea id="mensaje" rows="3" placeholder="¿Cuántos FPS ganaste? ¿Alguna duda?" required></textarea>
+                <button type="submit" class="btn-comment">PUBLICAR REPORTE</button>
+            </form>
+
+            <ul class="comment-list" id="commentList">
+                <li class="comment-item">
+                    <div class="author">EL_KACHORRO_MASTER</div>
+                    <div style="margin: 5px 0;">¡Excelente! Pasé de 15 FPS a 40 FPS estables en Fall Guys usando el Modo Papa. <span class="fps-tag">+25 FPS</span></div>
+                    <small style="color: #666;">Laptop Gobierno G5</small>
+                </li>
+                <li class="comment-item">
+                    <div class="author">GamerPobre_01</div>
+                    <div style="margin: 5px 0;">Me funcionó la limpieza de RAM. Ahora el Minecraft no se me cierra solo.</div>
+                    <small style="color: #666;">Exo Intel Celeron</small>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 LOS KACHORROS CON K - OPTIMIZANDO EL MUNDO PIXELADO
+    </footer>
+
+    <script>
+        // Sistema simple para agregar comentarios visualmente (no se guardan en base de datos)
+        document.getElementById('fpsForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nombre = document.getElementById('nombre').value;
+            const pc = document.getElementById('pc').value;
+            const mensaje = document.getElementById('mensaje').value;
+            
+            const list = document.getElementById('commentList');
+            const newComment = document.createElement('li');
+            newComment.className = 'comment-item';
+            
+            newComment.innerHTML = `
+                <div class="author">${nombre.toUpperCase()}</div>
+                <div style="margin: 5px 0;">${mensaje}</div>
+                <small style="color: #666;">${pc}</small>
+            `;
+            
+            list.prepend(newComment);
+            this.reset();
+        });
+    </script>
+</body>
+</html>
